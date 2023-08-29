@@ -1,42 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone Hunter API</title>
-    <script src="https://kit.fontawesome.com/e45d5c607f.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/e45d5c607f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="font-sans">
-    <header class="max-w-7xl mx-auto">
-        <nav class="flex items-center justify-between my-12">
-            <h3 class=" text-2xl font-bold text-[#100F0F]">Hot Gadgets</h3>
-            <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize">Sign Up</button>
-        </nav>
-        <div class="banner flex items-center justify-center flex-col gap-6">
-            <h1 class=" text-6xl font-bold text-[#100F0F]">Apple Iphone 13 Pro Max</h1>
-            <p class="text-lg text-[#706F6F] max-w-[720px] text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humou.</p>
-            <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize">Shop now</button>
-            <img class="mt-10" src="./images/banner.png" alt="">
-        </div>
+  </head>
+  <body class="font-sans">
+    <header class="max-w-7xl mx-auto px-5 lg:p-0">
+      <nav class="flex items-center justify-between my-12">
+        <h3 class="text-2xl font-bold text-[#100F0F]">Hot Gadgets</h3>
+        <button
+          class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize"
+        >
+          Sign Up
+        </button>
+      </nav>
+      <div class="banner flex items-center justify-center flex-col gap-6">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#100F0F]">
+          Apple Iphone 13 Pro Max
+        </h1>
+        <p
+          class="text-base md:text-lg text-[#706F6F] max-w-[720px] text-center"
+        >
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority have suffered alteration in some form, by injected humou.
+        </p>
+        <button
+          class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize"
+        >
+          Shop now
+        </button>
+        <img class="mt-10" src="./images/banner.png" alt="" />
+      </div>
     </header>
-    <main class="max-w-7xl mx-auto my-20">
-        <h2 class="text-4xl font-bold text-[#100F0F] text-center">Search your phone</h2>
-        <div class="flex mt-8 max-w-3xl mx-auto">
-            <i class="fa-solid fa-magnifying-glass text-xl -mr-10 mt-3"></i>
-            <input type="text" name="search" id="search-box" class="outline-none bg-[#100F0F0D] px-14 py-3 placeholder:tex-[#706F6F] rounded-lg w-4/5 rounded-r-none" placeholder="Search your phone">
-            <button onclick="searchBtn()" class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg capitalize w-1/5 rounded-l-none">Search</button>
-        </div>
-        <div id="loading" class="text-center mt-9 hidden">
-            <span class="loading loading-dots loading-lg" ></span>
-        </div>
-        <div id="phones-container" class="phones grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-10 mt-9">
+    <main class="max-w-7xl mx-auto my-20 px-5 lg:p-0">
+      <h2 class="text-4xl font-bold text-[#100F0F] text-center">
+        Search your phone
+      </h2>
+      <div class="flex mt-8 max-w-3xl mx-auto">
+        <i class="fa-solid fa-magnifying-glass text-xl -mr-10 mt-3"></i>
+        <input
+          type="text"
+          name="search"
+          id="search-box"
+          class="outline-none bg-[#100F0F0D] px-14 py-3 placeholder:tex-[#706F6F] rounded-lg w-4/5 rounded-r-none"
+          placeholder="Search your phone"
+        />
+        <button
+          onclick="searchBtn()"
+          class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg capitalize w-1/5 rounded-l-none"
+        >
+          Search
+        </button>
+      </div>
+      <div id="loading" class="text-center mt-9 hidden">
+        <span class="loading loading-dots loading-lg"></span>
+      </div>
+      <div>
+        <dialog id="show_details_modal" class="modal">
+            <form id="modal-container" method="dialog" class="modal-box max-w-2xl">
 
-        </div>
-        <div id="show-all-container" class="hidden text-center">
-            <button onclick="showAll()" class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize mx-auto">Show All</button>
-        </div>
+            </form>
+        </dialog>
+      </div>
+      <div id="phones-container" class="phones grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-10 mt-9"></div>
+      <div id="loading" class="text-center mt-9 hidden">
+        <span class="loading loading-dots loading-lg"></span>
+      </div>
+      <div id="show-all-container" class="hidden text-center">
+        <button onclick="showAll()" class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize mx-auto">Show All</button>
+      </div>
     </main>
     <footer class="py-20 bg-[#0D6EFD0D]">
         <div class="footer max-w-7xl mx-auto py-4 border-b text-base-content border-base-300">
@@ -85,5 +128,5 @@
         </div> 
     </footer>
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>

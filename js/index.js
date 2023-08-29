@@ -1,4 +1,4 @@
-const loadPhone = async (searchText, isShowAll) => {
+const loadPhone = async (searchText='a', isShowAll) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phones = data.data
@@ -28,7 +28,7 @@ const placePhones = (phones, isShowAll) =>{
                 <p class="text-lg text-[#706F6F] text-center">There are many variations of passages of available, but the majority have suffered</p>
                 <h2 class="text-center text-2xl font-bold text-[#100F0F]">$999</h2>
                 <div class="card-actions justify-center">
-                    <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg capitalize w-1/5 px-16">Details</button>
+                    <button onclick="showDetails('${phone.slug}')" class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg capitalize w-1/5 px-16">Details</button>
                 </div>
             </div>
         </div>
@@ -54,5 +54,38 @@ const loading = (isLoading) =>{
    }
 }
 const showAll = () =>{
+    loading(true);
     searchBtn(true)
 }
+const showDetails = async(id) =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+    const data = await res.json();
+    const phone = data.data;
+    setModal(phone);
+}
+const setModal = (phone) =>{
+    console.log(phone)
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.textContent = '';
+    const div = document.createElement('div');
+    div.innerHTML = `
+        <div class="text-center p-12 bg-[#f3f8ff] rounded-lg mb-6">
+            <img class="inline" src="${phone.image}" alt="">
+        </div>
+        <h3 class="text-2xl md:text-4xl font-bold text-[#100F0F] mb-4">${phone.name}</h3>
+        <p class="text-base md:text-lg text-[#706F6F] mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Storage : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.storage}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Display Size : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.displaySize}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Chipset : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.chipSet}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Memory : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.memory}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Slug : <span class="font-normal text-sm text-[#706F6F]">${phone.slug}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Release data : <span class="font-normal text-sm text-[#706F6F]">${phone.releaseDate}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Brand : <span class="font-normal text-sm text-[#706F6F]">${phone.brand}</span></p>
+        <div class="modal-action">
+            <button class="btn btn-secondary">Close</button>
+        </div>
+    `;
+    modalContainer.appendChild(div);
+    show_details_modal.showModal();
+}
+loadPhone();
