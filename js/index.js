@@ -1,4 +1,5 @@
-const loadPhone = async (searchText='a', isShowAll) => {
+const loadPhone = async (searchinput, isShowAll) => {
+    const searchText = searchinput || 'a';
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phones = data.data
@@ -88,4 +89,4 @@ const setModal = (phone) =>{
     modalContainer.appendChild(div);
     show_details_modal.showModal();
 }
-loadPhone();
+searchBtn();
