@@ -17,7 +17,7 @@
         <div class="banner flex items-center justify-center flex-col gap-6">
             <h1 class=" text-6xl font-bold text-[#100F0F]">Apple Iphone 13 Pro Max</h1>
             <p class="text-lg text-[#706F6F] max-w-[720px] text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humou.</p>
-            <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize">Sign Up</button>
+            <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize">Shop now</button>
             <img class="mt-10" src="./images/banner.png" alt="">
         </div>
     </header>
@@ -26,23 +26,17 @@
         <div class="flex mt-8 max-w-3xl mx-auto">
             <i class="fa-solid fa-magnifying-glass text-xl -mr-10 mt-3"></i>
             <input type="text" name="search" id="search-box" class="outline-none bg-[#100F0F0D] px-14 py-3 placeholder:tex-[#706F6F] rounded-lg w-4/5 rounded-r-none" placeholder="Search your phone">
-            <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg capitalize w-1/5 rounded-l-none">Search</button>
+            <button onclick="searchBtn()" class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg capitalize w-1/5 rounded-l-none">Search</button>
+        </div>
+        <div id="loading" class="text-center mt-9 hidden">
+            <span class="loading loading-dots loading-lg" ></span>
+        </div>
+        <div id="phones-container" class="phones grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-10 mt-9">
 
         </div>
-        <div class="phones grid grid-cols-3 gap-6 py-10">
-            <div class="card bg-base-100 shadow-md p-5">
-                <figure class="p-10 bg-[#0D6EFD0D]"><img  src="./images/pngwing 4.png" alt="Shoes" /></figure>
-                <div class="card-body">
-                    <h2 class="text-center text-2xl font-bold text-[#100F0F]">Iphone 13 Pro Max</h2>
-                    <p class="text-lg text-[#706F6F] text-center">There are many variations of passages of available, but the majority have suffered</p>
-                    <h2 class="text-center text-2xl font-bold text-[#100F0F]">$999</h2>
-                    <div class="card-actions justify-center">
-                        <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg capitalize w-1/5 px-16">Details</button>
-                    </div>
-                </div>
-            </div>
+        <div id="show-all-container" class="hidden text-center">
+            <button onclick="showAll()" class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize mx-auto">Show All</button>
         </div>
-        <button class="btn bg-blue-600 hover:bg-blue-500 text-white font-medium text-lg px-10 capitalize block mx-auto">Show All</button>
     </main>
     <footer class="py-20 bg-[#0D6EFD0D]">
         <div class="footer max-w-7xl mx-auto py-4 border-b text-base-content border-base-300">
