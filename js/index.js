@@ -75,13 +75,15 @@ const setModal = (phone) =>{
         </div>
         <h3 class="text-2xl md:text-4xl font-bold text-[#100F0F] mb-4">${phone.name}</h3>
         <p class="text-base md:text-lg text-[#706F6F] mb-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-        <p class="font-semibold text-[#100F0F] text-lg mb-1">Storage : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.storage}</span></p>
-        <p class="font-semibold text-[#100F0F] text-lg mb-1">Display Size : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.displaySize}</span></p>
-        <p class="font-semibold text-[#100F0F] text-lg mb-1">Chipset : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.chipSet}</span></p>
-        <p class="font-semibold text-[#100F0F] text-lg mb-1">Memory : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures.memory}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Storage : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures?.storage}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Display Size : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures?.displaySize}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Chipset : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures?.chipSet}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Memory : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures?.memory}</span></p>
         <p class="font-semibold text-[#100F0F] text-lg mb-1">Slug : <span class="font-normal text-sm text-[#706F6F]">${phone.slug}</span></p>
         <p class="font-semibold text-[#100F0F] text-lg mb-1">Release data : <span class="font-normal text-sm text-[#706F6F]">${phone.releaseDate}</span></p>
         <p class="font-semibold text-[#100F0F] text-lg mb-1">Brand : <span class="font-normal text-sm text-[#706F6F]">${phone.brand}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">GPS : <span class="font-normal text-sm text-[#706F6F]">${phone.others?.GPS || 'Not available'}</span></p>
+        <p class="font-semibold text-[#100F0F] text-lg mb-1">Sensors : <span class="font-normal text-sm text-[#706F6F]">${phone.mainFeatures?.sensors}</span></p>
         <div class="modal-action">
             <button class="btn btn-secondary">Close</button>
         </div>
